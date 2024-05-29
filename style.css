@@ -55,6 +55,7 @@ body{
     min-height: 10vh;
     background-color: #ce7b7b;
     padding: 10px;
+    font-size: 40px;
 }
 
 .info {
@@ -72,4 +73,11 @@ input{
     padding: 10px;
     font-size: 25px;
     background-color: #ff9a9a;
+}
+
+.checkInfo{
+    font-size: 35px;
+    padding: 20px;
+    background-color: rgb(112, 30, 30);
+    color: #fff;
 }

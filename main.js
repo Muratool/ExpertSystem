@@ -1,16 +1,13 @@
-// const speedHTML = document.querySelector(".speedNum");
-// const distanceHTML = document.querySelector(".distanceNum");
-
-// const whatToDo = document.querySelector(".what-to-do");
-
 const speedHTML = document.querySelector('.speedNum');
 const distanceHTML = document.querySelector('.distanceNum');
 
 const whatToDo = document.querySelector('.what-to-do');
 
+const checkInfo = document.querySelector('.checkInfo');
+
 //Входные параметры: скорость движения робота и расстояние до объекта
-let speed = 0;
-let distance = 0;
+let speedReal = speedHTML.innerHTML;
+let distanceReal = distanceHTML.innerHTML;
 
 
 
@@ -70,11 +67,22 @@ function decideAction(distance, speed) {
   return action;
 }
 
-for (let i = 0; i < 100; i++) {
-  speed = +speedHTML;
-  distance = +distanceHTML;
+// for (let i = 0; i < 100; i++) {
+//   speed = +speedHTML;
+//   distance = +distanceHTML;
 
-  setTimeout(() => {
-    whatToDo.innerHTML = decideAction(distance, speed);
-  }, 1000 * i);
-}
+//   setTimeout(() => {
+//     whatToDo.innerHTML = decideAction(distance, speed);
+//   }, 1000 * i);
+// }
+
+checkInfo.addEventListener('click', () => {
+  console.log('click');
+  whatToDo.innerHTML = ``;
+
+  speedReal = +speedHTML.value;
+  distanceReal = +distanceHTML.value;
+
+  decideAction(+distanceReal, +speedReal);
+  whatToDo.innerHTML = action;
+})
