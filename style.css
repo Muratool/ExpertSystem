@@ -66,6 +66,7 @@ body{
 
 .what-to-do {
     text-align: center;
+    padding-block: 35px;
 }
 
 input{
@@ -80,4 +81,9 @@ input{
     padding: 20px;
     background-color: rgb(112, 30, 30);
     color: #fff;
+}
+
+.checkInfo:active{
+    background-color: #fff;
+    color: black;
 }

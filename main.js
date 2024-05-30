@@ -1,15 +1,13 @@
-const speedHTML = document.querySelector('.speedNum');
-const distanceHTML = document.querySelector('.distanceNum');
+const speedHTML = document.querySelector(".speedNum");
+const distanceHTML = document.querySelector(".distanceNum");
 
-const whatToDo = document.querySelector('.what-to-do');
+const whatToDo = document.querySelector(".what-to-do");
 
-const checkInfo = document.querySelector('.checkInfo');
+const checkInfo = document.querySelector(".checkInfo");
 
 //Входные параметры: скорость движения робота и расстояние до объекта
 let speedReal = speedHTML.innerHTML;
 let distanceReal = distanceHTML.innerHTML;
-
-
 
 //Выходные параметры
 let action = ""; // Действие для управления скоростью
@@ -76,13 +74,27 @@ function decideAction(distance, speed) {
 //   }, 1000 * i);
 // }
 
-checkInfo.addEventListener('click', () => {
-  console.log('click');
-  whatToDo.innerHTML = ``;
+// Счетчик для рассчета времени, которое робот стоит на месте
+let counter = 0;
 
-  speedReal = +speedHTML.value;
-  distanceReal = +distanceHTML.value;
+checkInfo.addEventListener("click", () => {
+  if (action == "Остановить") {
+    if (counter == 5){
+      action = "Повернуться";
+      whatToDo.innerHTML = ``;
+      whatToDo.innerHTML = action;
+      counter = 0;
+    } else{
+      counter++;
+    }
+   
+  } else {
+    whatToDo.innerHTML = ``;
 
-  decideAction(+distanceReal, +speedReal);
-  whatToDo.innerHTML = action;
-})
+    speedReal = +speedHTML.value;
+    distanceReal = +distanceHTML.value;
+
+    decideAction(+distanceReal, +speedReal);
+    whatToDo.innerHTML = action;
+  }
+});
